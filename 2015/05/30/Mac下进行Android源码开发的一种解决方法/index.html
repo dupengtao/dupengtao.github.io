@@ -37,7 +37,7 @@ intellij Idea 下载地址
 
 其他环境下载
 JDK 6">
-<meta property="og:updated_time" content="2015-05-30T13:29:13.000Z">
+<meta property="og:updated_time" content="2015-05-30T13:58:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac下进行Android源码开发的一种解决方法">
 <meta name="twitter:description" content="&amp;lt;!--##Mac下进行Android源码开发的一种方案--&amp;gt;
@@ -117,37 +117,45 @@ JDK 6">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDE下载"><span class="toc-number">2.</span> <span class="toc-text">IDE下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他环境下载"><span class="toc-number">3.</span> <span class="toc-text">其他环境下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务器端(Linux)"><span class="toc-number">4.</span> <span class="toc-text">服务器端(Linux)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Samba"><span class="toc-number">4.1.</span> <span class="toc-text">Samba</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#安装"><span class="toc-number">4.1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#卸载"><span class="toc-number">4.1.2.</span> <span class="toc-text">卸载</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#启动"><span class="toc-number">4.1.3.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#重启Samba"><span class="toc-number">4.1.4.</span> <span class="toc-text">重启Samba</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#客户端(Mac)挂载"><span class="toc-number">4.1.5.</span> <span class="toc-text">客户端(Mac)挂载</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#简单方式"><span class="toc-number">4.1.5.1.</span> <span class="toc-text">简单方式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#指定目录方式"><span class="toc-number">4.1.5.2.</span> <span class="toc-text">指定目录方式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SSH链接"><span class="toc-number">4.2.</span> <span class="toc-text">SSH链接</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IDE下载"><span class="toc-number">2.</span> <span class="toc-text">IDE下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他环境下载"><span class="toc-number">3.</span> <span class="toc-text">其他环境下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务器端(Linux)"><span class="toc-number">4.</span> <span class="toc-text">服务器端(Linux)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Samba"><span class="toc-number">4.1.</span> <span class="toc-text">Samba</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装"><span class="toc-number">4.1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#卸载"><span class="toc-number">4.1.2.</span> <span class="toc-text">卸载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动"><span class="toc-number">4.1.3.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重启Samba"><span class="toc-number">4.1.4.</span> <span class="toc-text">重启Samba</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#客户端(Mac)挂载"><span class="toc-number">4.1.5.</span> <span class="toc-text">客户端(Mac)挂载</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#简单方式"><span class="toc-number">4.1.5.1.</span> <span class="toc-text">简单方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#指定目录方式"><span class="toc-number">4.1.5.2.</span> <span class="toc-text">指定目录方式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH链接"><span class="toc-number">4.2.</span> <span class="toc-text">SSH链接</span></a></li></ol></li></ol>
 		
 		</div>
 		
 		<!--##Mac下进行Android源码开发的一种方案-->
-<h3 id="背景">背景</h3><p>os版本号：10.10.3</p>
+<h2 id="背景">背景</h2><p>os版本号：10.10.3</p>
 <p>ubuntu版本：14.04</p>
 <p>Mac是mbpr，磁盘空间有限(😢)，所以采取用ubuntu台式机进行编译，Mac挂载ubuntu上的Rom源码的方式</p>
 <p>开发环境需要大量下载，可能需要翻墙</p>
-<h3 id="IDE下载">IDE下载</h3><ul>
+<h2 id="IDE下载">IDE下载</h2><ul>
 <li>Android Studio <a href="http://developer.android.com/sdk/index.html" target="_blank" rel="external">下载地址</a></li>
 <li>intellij Idea <a href="https://www.jetbrains.com/idea/" target="_blank" rel="external">下载地址</a></li>
 </ul>
-<h3 id="其他环境下载">其他环境下载</h3><ul>
+<h2 id="其他环境下载">其他环境下载</h2><ul>
 <li>JDK 6</li>
 <li>JDK 7 (Android 5.0需要)</li>
 <li>Xcode</li>
 </ul>
 <p>环境搭建好后，就需要远程连接<em>服务器</em>(这里指的是台式机)。</p>
-<h3 id="服务器端(Linux)">服务器端(Linux)</h3><h4 id="Samba">Samba</h4><h5 id="安装">安装</h5><p>直接上命令</p>
+<h2 id="服务器端(Linux)">服务器端(Linux)</h2><h3 id="Samba"><strong>Samba</strong></h3><h4 id="安装"><strong>安装</strong></h4><p>直接上命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install samba</span><br><span class="line">sudo apt-get install smbfs</span><br><span class="line">sudo apt-get install system-config-samba</span><br></pre></td></tr></table></figure>
-<h5 id="卸载">卸载</h5><p>如安装失败，可执行下面命令删除</p>
+<h4 id="卸载"><strong>卸载</strong></h4><p>如安装失败，可执行下面命令删除</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove samba-common</span><br><span class="line">sudo apt-get remove smbclient</span><br><span class="line">sudo apt-get remove samba</span><br></pre></td></tr></table></figure>
-<h5 id="启动">启动</h5><p>可通过图形界面启动，也可执行下边命令:</p>
+<h4 id="启动"><strong>启动</strong></h4><p>可通过图形界面启动，也可执行下边命令:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo system-config-samba</span><br></pre></td></tr></table></figure>
 <p>在图像化界面中设置想要分享的文件夹，非常的直观。</p>
-<h5 id="重启Samba">重启Samba</h5><p>有时需要手动重启下Samba，才会生效</p>
+<h4 id="重启Samba"><strong>重启Samba</strong></h4><p>有时需要手动重启下Samba，才会生效</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service sambd restart</span><br></pre></td></tr></table></figure>
-<h5 id="客户端(Mac)挂载">客户端(Mac)挂载</h5><h6 id="简单方式">简单方式</h6><p><strong>Finder</strong>—-&gt;<strong>前往</strong>—-&gt;<strong>链接服务器</strong></p>
-<h6 id="指定目录方式">指定目录方式</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mount -t smbfs //用户:密码@服务器地址/共享文件夹 本地挂载文件夹</span><br><span class="line">eg.</span><br><span class="line">mount -t smbfs //user:mima@<span class="number">10.58</span>.<span class="number">20.143</span>/x0521 x1</span><br></pre></td></tr></table></figure>
-<h4 id="SSH链接">SSH链接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh &#26381;&#21153;&#22120;&#22320;&#22336;</span><br></pre></td></tr></table></figure>
+<h4 id="客户端(Mac)挂载"><strong>客户端(Mac)挂载</strong></h4><ul>
+<li><h5 id="简单方式">简单方式</h5></li>
+</ul>
+<blockquote>
+<p><strong>Finder</strong>—-&gt;<strong>前往</strong>—-&gt;<strong>链接服务器</strong></p>
+</blockquote>
+<ul>
+<li><h5 id="指定目录方式">指定目录方式</h5></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mount -t smbfs //用户:密码@服务器地址/共享文件夹 本地挂载文件夹</span><br><span class="line">eg.</span><br><span class="line">mount -t smbfs //user:mima@<span class="number">10.58</span>.<span class="number">20.143</span>/x0521 x1</span><br></pre></td></tr></table></figure>
+<h3 id="SSH链接"><strong>SSH链接</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh &#26381;&#21153;&#22120;&#22320;&#22336;</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <blockquote>
 <p>End<br>非常感谢那些帮助我的人</p>
@@ -210,7 +218,7 @@ JDK 6">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDE下载"><span class="toc-number">2.</span> <span class="toc-text">IDE下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他环境下载"><span class="toc-number">3.</span> <span class="toc-text">其他环境下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务器端(Linux)"><span class="toc-number">4.</span> <span class="toc-text">服务器端(Linux)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Samba"><span class="toc-number">4.1.</span> <span class="toc-text">Samba</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#安装"><span class="toc-number">4.1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#卸载"><span class="toc-number">4.1.2.</span> <span class="toc-text">卸载</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#启动"><span class="toc-number">4.1.3.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#重启Samba"><span class="toc-number">4.1.4.</span> <span class="toc-text">重启Samba</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#客户端(Mac)挂载"><span class="toc-number">4.1.5.</span> <span class="toc-text">客户端(Mac)挂载</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#简单方式"><span class="toc-number">4.1.5.1.</span> <span class="toc-text">简单方式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#指定目录方式"><span class="toc-number">4.1.5.2.</span> <span class="toc-text">指定目录方式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SSH链接"><span class="toc-number">4.2.</span> <span class="toc-text">SSH链接</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IDE下载"><span class="toc-number">2.</span> <span class="toc-text">IDE下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他环境下载"><span class="toc-number">3.</span> <span class="toc-text">其他环境下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务器端(Linux)"><span class="toc-number">4.</span> <span class="toc-text">服务器端(Linux)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Samba"><span class="toc-number">4.1.</span> <span class="toc-text">Samba</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装"><span class="toc-number">4.1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#卸载"><span class="toc-number">4.1.2.</span> <span class="toc-text">卸载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动"><span class="toc-number">4.1.3.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重启Samba"><span class="toc-number">4.1.4.</span> <span class="toc-text">重启Samba</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#客户端(Mac)挂载"><span class="toc-number">4.1.5.</span> <span class="toc-text">客户端(Mac)挂载</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#简单方式"><span class="toc-number">4.1.5.1.</span> <span class="toc-text">简单方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#指定目录方式"><span class="toc-number">4.1.5.2.</span> <span class="toc-text">指定目录方式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH链接"><span class="toc-number">4.2.</span> <span class="toc-text">SSH链接</span></a></li></ol></li></ol>
  
   </div>
 
