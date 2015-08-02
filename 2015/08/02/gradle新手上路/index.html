@@ -1,0 +1,500 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Gradle新手上路 | Keep a curiosity</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="dpt">
+    
+
+    
+    <meta name="description" content="什么是Gradle？Gradle是一种依赖管理工具，基于Groovy语言
+Gradle 基本概念下图是很基本的Android Gradle工程，目录结构也是正常的Gradle工程的样式。
+
+StudyGradle/build.gradle(图标1)这个文件是整个项目的gradle基础配置文件:
+12345678910111213141516171819202122// Top-level buil">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gradle新手上路">
+<meta property="og:url" content="http://www.dptdev.com/2015/08/02/Gradle新手上路/index.html">
+<meta property="og:site_name" content="Keep a curiosity">
+<meta property="og:description" content="什么是Gradle？Gradle是一种依赖管理工具，基于Groovy语言
+Gradle 基本概念下图是很基本的Android Gradle工程，目录结构也是正常的Gradle工程的样式。
+
+StudyGradle/build.gradle(图标1)这个文件是整个项目的gradle基础配置文件:
+12345678910111213141516171819202122// Top-level buil">
+<meta property="og:image" content="http://7d9pic.com1.z0.glb.clouddn.com/gradle新手上路4.png">
+<meta property="og:image" content="http://7d9pic.com1.z0.glb.clouddn.com/gradle新手上路5.png">
+<meta property="og:updated_time" content="2015-08-02T14:15:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gradle新手上路">
+<meta name="twitter:description" content="什么是Gradle？Gradle是一种依赖管理工具，基于Groovy语言
+Gradle 基本概念下图是很基本的Android Gradle工程，目录结构也是正常的Gradle工程的样式。
+
+StudyGradle/build.gradle(图标1)这个文件是整个项目的gradle基础配置文件:
+12345678910111213141516171819202122// Top-level buil">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Keep a curiosity" type="application/atom+xml">
+    
+    
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Keep a curiosity">Keep a curiosity</a></h1>
+				<h2 class="blog-motto">保持一颗好奇心</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.dptdev.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/08/02/Gradle新手上路/" title="Gradle新手上路" itemprop="url">Gradle新手上路</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="dpt" target="_blank" itemprop="author">dpt</a>
+		
+  <p class="article-time">
+    <time datetime="2015-08-02T13:38:42.000Z" itemprop="datePublished"> 发表于 2015-08-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是Gradle？"><span class="toc-number">1.</span> <span class="toc-text">什么是Gradle？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gradle_基本概念"><span class="toc-number">2.</span> <span class="toc-text">Gradle 基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#StudyGradle/build-gradle(图标1)"><span class="toc-number">2.1.</span> <span class="toc-text">StudyGradle/build.gradle(图标1)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#StudyGradle/app/build-gradle(图标2)"><span class="toc-number">2.2.</span> <span class="toc-text">StudyGradle/app/build.gradle(图标2)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#buildTypes{}"><span class="toc-number">2.2.1.</span> <span class="toc-text">buildTypes{}</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#defaultConfig{}"><span class="toc-number">2.2.2.</span> <span class="toc-text">defaultConfig{}</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dependencies{}"><span class="toc-number">2.2.3.</span> <span class="toc-text">dependencies{}</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#StudyGradle/demolibrary/build-gradle(图标2)"><span class="toc-number">2.3.</span> <span class="toc-text">StudyGradle/demolibrary/build.gradle(图标2)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#StudyGradle/build-gradle(图标3)"><span class="toc-number">2.4.</span> <span class="toc-text">StudyGradle/build.gradle(图标3)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gradle_Wrapper(图标4)"><span class="toc-number">2.5.</span> <span class="toc-text">Gradle Wrapper(图标4)</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h2 id="什么是Gradle？">什么是Gradle？</h2><p>Gradle是一种依赖管理工具，基于Groovy语言</p>
+<h2 id="Gradle_基本概念">Gradle 基本概念</h2><p>下图是很基本的Android Gradle工程，目录结构也是正常的Gradle工程的样式。</p>
+<p><img src="http://7d9pic.com1.z0.glb.clouddn.com/gradle新手上路4.png" alt="Gradle基本工程图"></p>
+<h3 id="StudyGradle/build-gradle(图标1)"><strong>StudyGradle/build.gradle(图标1)</strong></h3><p>这个文件是整个项目的gradle基础配置文件:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Top-level build file where you can add configuration options common to all sub-projects/modules.</span></span><br><span class="line"></span><br><span class="line">buildscript &#123; <span class="comment">// 脚步运行环境</span></span><br><span class="line">    repositories &#123;<span class="comment">// 用于项目依赖</span></span><br><span class="line">        <span class="comment">// 中央远程仓库</span></span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        <span class="comment">// gradle版本</span></span><br><span class="line">        classpath <span class="string">'com.android.tools.build:gradle:1.2.3'</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// <span class="doctag"><span class="keyword">NOTE</span></span>: Do not place your application dependencies here; they belong</span></span><br><span class="line">        <span class="comment">// in the individual module build.gradle files</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里主要描述了两个方面：</p>
+<ol>
+<li>gradle 版本</li>
+<li>仓库的源地址</li>
+</ol>
+<h3 id="StudyGradle/app/build-gradle(图标2)"><strong>StudyGradle/app/build.gradle(图标2)</strong></h3><p>这个文件是Module名称为app的gradle的配置文件，在此项目中是主要的gradle配置文件。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明插件类型，这里声明的是Android程序</span></span><br><span class="line">apply plugin: <span class="string">'com.android.application'</span></span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    <span class="comment">//编译SDK的版本</span></span><br><span class="line">    compileSdkVersion <span class="number">22</span></span><br><span class="line">    <span class="comment">//build tools 的版本 对应Android SDK Build-tools</span></span><br><span class="line">    buildToolsVersion <span class="string">"21.1.2"</span></span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        <span class="comment">//应用包名</span></span><br><span class="line">        applicationId <span class="string">"com.example.dpt.studygradledemo"</span></span><br><span class="line">        minSdkVersion <span class="number">21</span></span><br><span class="line">        targetSdkVersion <span class="number">22</span></span><br><span class="line">        versionCode <span class="number">1</span></span><br><span class="line">        versionName <span class="string">"1.0"</span></span><br><span class="line">    &#125;</span><br><span class="line">    buildTypes &#123;<span class="comment">//构建类型，常用的有release和debug两种，可以在这里面启用混淆，启用zipAlign以及配置签名信息等</span></span><br><span class="line">        release &#123;</span><br><span class="line">            <span class="comment">//是否进行混淆</span></span><br><span class="line">            minifyEnabled <span class="keyword">false</span></span><br><span class="line">            <span class="comment">//混淆文件位置</span></span><br><span class="line">            <span class="function">proguardFiles <span class="title">getDefaultProguardFile</span><span class="params">(<span class="string">'proguard-android.txt'</span>)</span>, 'proguard-rules.pro'</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 移除lint检查的error</span></span><br><span class="line">    lintOptions </span>&#123;</span><br><span class="line">        abortOnError <span class="keyword">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    <span class="comment">// 编译依赖libs目录下的所有jar包</span></span><br><span class="line">    <span class="function">compile <span class="title">fileTree</span><span class="params">(dir: <span class="string">'libs'</span>, include: [<span class="string">'*.jar'</span>])</span></span><br><span class="line">    <span class="comment">// //应用格式: packageName:artifactId:version</span></span><br><span class="line">    <span class="comment">// 依赖 support-v4</span></span><br><span class="line">    compile 'com.android.support:support-v4:22.2.0'</span><br><span class="line">    <span class="comment">// 依赖 card view</span></span><br><span class="line">    compile 'com.android.support:cardview-v7:22.2.0'</span><br><span class="line">    <span class="comment">// 依赖 library module</span></span><br><span class="line">    compile <span class="title">project</span><span class="params">(<span class="string">':demolibrary'</span>)</span></span><br><span class="line">    compile 'com.android.support:palette-v7:22.2.0'</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>ps:</p>
+<ol>
+<li>开头第一行apply plugin: ‘com.android.application’，这表示该module是一个app module，应用了com.android.application插件，如果是一个android library，那么这里的是apply plugin: ‘com.android.library’。’com.android.application’是较新的写法，但不是最新的写法。</li>
+<li>buildToolsVersion 对应Android SDK Build-tools的版本，如图<br><img src="http://7d9pic.com1.z0.glb.clouddn.com/gradle新手上路5.png" alt="Android SDK Build-tools"><br><br></li>
+</ol>
+<h4 id="buildTypes{}"><strong>buildTypes{}</strong></h4><p>buildTypes是构建类型，常用的有release和debug两种，可以在这里面启用混淆，启用zipAlign以及配置签名信息等。<br><br></p>
+<h4 id="defaultConfig{}"><strong>defaultConfig{}</strong></h4><p>这里描述的是一些项目基础默认配置</p>
+<p>常用的属性有：versionCode,versionName,minSdkVersion,targetSdkVersion,applicationId等<br><br></p>
+<h4 id="dependencies{}"><strong>dependencies{}</strong></h4><p>dependencies就不属于Android专有的配置了，它定义了该module需要依赖的jar，aar，jcenter库信息。</p>
+<ol>
+<li>compile fileTree(dir: ‘libs’, include: [‘*.jar’]) 编译依赖libs目录下的所有jar包</li>
+<li>compile ‘com.android.support:support-v4:22.2.0’ 依赖 support-v4 </li>
+<li>compile project(‘:demolibrary’) 依赖其他module</li>
+</ol>
+<p>ps:</p>
+<p>其中依赖开源组件的格式为：packageName:artifactId:version 例如，compile ‘com.android.support:support-v4:22.2.0’</p>
+<h3 id="StudyGradle/demolibrary/build-gradle(图标2)"><strong>StudyGradle/demolibrary/build.gradle(图标2)</strong></h3><p>这个是一个依赖库的module配置文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明Android library</span></span><br><span class="line">apply plugin: <span class="string">'com.android.library'</span></span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    <span class="comment">//编译SDK版本</span></span><br><span class="line">    compileSdkVersion <span class="number">22</span></span><br><span class="line">    <span class="comment">//build tools 的版本 对应Android SDK Build-tools</span></span><br><span class="line">    buildToolsVersion <span class="string">"21.1.2"</span></span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        minSdkVersion <span class="number">21</span></span><br><span class="line">        targetSdkVersion <span class="number">22</span></span><br><span class="line">        versionCode <span class="number">1</span></span><br><span class="line">        versionName <span class="string">"1.0"</span></span><br><span class="line">    &#125;</span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            <span class="function">minifyEnabled <span class="keyword">false</span></span><br><span class="line">            proguardFiles <span class="title">getDefaultProguardFile</span><span class="params">(<span class="string">'proguard-android.txt'</span>)</span>, 'proguard-rules.pro'</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies </span>&#123;</span><br><span class="line">    <span class="function">compile <span class="title">fileTree</span><span class="params">(dir: <span class="string">'libs'</span>, include: [<span class="string">'*.jar'</span>])</span></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>ps:</p>
+<ol>
+<li>这里需要注意的是apply plugin 这里声明为Android library</li>
+</ol>
+<h3 id="StudyGradle/build-gradle(图标3)"><strong>StudyGradle/build.gradle(图标3)</strong></h3><p>这个文件是全局的项目配置文件，里面主要声明一些需要加入gradle的module</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include <span class="string">':app'</span>, <span class="string">':demolibrary'</span></span><br></pre></td></tr></table></figure>
+<h3 id="Gradle_Wrapper(图标4)"><strong>Gradle Wrapper(图标4)</strong></h3><p>android studio希望你能在电脑上不安装gradle的情况下，依然使用gradle管理android项目，因此通过AS创建的每个项目都会内嵌一个gradle wrapper，作用是检查你当前的共工作环境是否安装了创建本项目时所用的gradle版本。<br>如果没有，它会自动下载相应的gradle放在~/.gradle/wrapper.目录下。这样当你在你的项目里使用gradle时，可以通过gradlw命令使用当前项目环境的gradle版本，而不受环境变量的影响。</p>
+<p>很多人会遇到一个项目build很久，很大一部分原因就是因为这个，他会去下载自带的gradle wrapper，50多M，大部分情况下需要翻墙</p>
+<p>如果不能翻墙，也可以更改<strong>gradle-wrapper.properties</strong>的配置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">distributionBase=GRADLE_USER_HOME</span><br><span class="line">distributionPath=wrapper/dists</span><br><span class="line">zipStoreBase=GRADLE_USER_HOME</span><br><span class="line">zipStorePath=wrapper/dists</span><br><span class="line">distributionUrl=https\:<span class="comment">//services.gradle.org/distributions/gradle-2.2.1-all.zip</span></span><br></pre></td></tr></table></figure>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Gradle/">Gradle</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Gradle/">Gradle</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.dptdev.com/2015/08/02/Gradle新手上路/" data-title="Gradle新手上路 | Keep a curiosity" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/06/13/Android旋转动画的三种方式/"  title="Android旋转动画的三种方式">
+ <strong>下一篇：</strong><br/> 
+ <span>Android旋转动画的三种方式
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/08/02/Gradle新手上路/" data-title="Gradle新手上路" data-url="http://www.dptdev.com/2015/08/02/Gradle新手上路/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是Gradle？"><span class="toc-number">1.</span> <span class="toc-text">什么是Gradle？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gradle_基本概念"><span class="toc-number">2.</span> <span class="toc-text">Gradle 基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#StudyGradle/build-gradle(图标1)"><span class="toc-number">2.1.</span> <span class="toc-text">StudyGradle/build.gradle(图标1)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#StudyGradle/app/build-gradle(图标2)"><span class="toc-number">2.2.</span> <span class="toc-text">StudyGradle/app/build.gradle(图标2)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#buildTypes{}"><span class="toc-number">2.2.1.</span> <span class="toc-text">buildTypes{}</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#defaultConfig{}"><span class="toc-number">2.2.2.</span> <span class="toc-text">defaultConfig{}</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dependencies{}"><span class="toc-number">2.2.3.</span> <span class="toc-text">dependencies{}</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#StudyGradle/demolibrary/build-gradle(图标2)"><span class="toc-number">2.3.</span> <span class="toc-text">StudyGradle/demolibrary/build.gradle(图标2)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#StudyGradle/build-gradle(图标3)"><span class="toc-number">2.4.</span> <span class="toc-text">StudyGradle/build.gradle(图标3)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gradle_Wrapper(图标4)"><span class="toc-number">2.5.</span> <span class="toc-text">Gradle Wrapper(图标4)</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Android/" title="Android">Android<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Gradle/" title="Gradle">Gradle<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/git/" title="git">git<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/github/" title="github">github<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Mac/" title="Mac">Mac<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Gradle/" title="Gradle">Gradle<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Anim/" title="Anim">Anim<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<section class="info">
+		<p> Have a nice day . <br/>
+			 </p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="dpt">dpt</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"dptdev"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
