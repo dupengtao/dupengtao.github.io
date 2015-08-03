@@ -12,29 +12,29 @@
 
     
     <meta name="description" content="什么是Gradle？Gradle 是一个基于Ant和Maven概念的项目自动化建构工具。
-Gradle 基本概念下图是很基本的Android Gradle工程，目录结构也是正常的Gradle工程的样式。
+Gradle 基本概念下图是很基本的Android Gradle工程，目录结构也是正常的Gradle工程的样式。Demo地址
 
 StudyGradle/build.gradle(图标1)这个文件是整个项目的gradle基础配置文件:
-12345678910111213141516171819202122// Top-le">
+12345678910111213141516171819202122//">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Gradle 新手入门">
 <meta property="og:url" content="http://www.dptdev.com/2015/08/02/Android-Gradle-新手入门/index.html">
 <meta property="og:site_name" content="Keep a curiosity">
 <meta property="og:description" content="什么是Gradle？Gradle 是一个基于Ant和Maven概念的项目自动化建构工具。
-Gradle 基本概念下图是很基本的Android Gradle工程，目录结构也是正常的Gradle工程的样式。
+Gradle 基本概念下图是很基本的Android Gradle工程，目录结构也是正常的Gradle工程的样式。Demo地址
 
 StudyGradle/build.gradle(图标1)这个文件是整个项目的gradle基础配置文件:
-12345678910111213141516171819202122// Top-le">
+12345678910111213141516171819202122//">
 <meta property="og:image" content="http://7d9pic.com1.z0.glb.clouddn.com/gradle新手上路4.png">
 <meta property="og:image" content="http://7d9pic.com1.z0.glb.clouddn.com/gradle新手上路5.png">
-<meta property="og:updated_time" content="2015-08-03T02:47:59.000Z">
+<meta property="og:updated_time" content="2015-08-03T03:53:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Gradle 新手入门">
 <meta name="twitter:description" content="什么是Gradle？Gradle 是一个基于Ant和Maven概念的项目自动化建构工具。
-Gradle 基本概念下图是很基本的Android Gradle工程，目录结构也是正常的Gradle工程的样式。
+Gradle 基本概念下图是很基本的Android Gradle工程，目录结构也是正常的Gradle工程的样式。Demo地址
 
 StudyGradle/build.gradle(图标1)这个文件是整个项目的gradle基础配置文件:
-12345678910111213141516171819202122// Top-le">
+12345678910111213141516171819202122//">
 
     
     <link rel="alternative" href="/atom.xml" title="Keep a curiosity" type="application/atom+xml">
@@ -106,7 +106,7 @@ StudyGradle/build.gradle(图标1)这个文件是整个项目的gradle基础配�
 		</div>
 		
 		<h2 id="什么是Gradle？">什么是Gradle？</h2><p>Gradle 是一个基于Ant和Maven概念的项目自动化建构工具。</p>
-<h2 id="Gradle_基本概念">Gradle 基本概念</h2><p>下图是很基本的Android Gradle工程，目录结构也是正常的Gradle工程的样式。</p>
+<h2 id="Gradle_基本概念">Gradle 基本概念</h2><p>下图是很基本的Android Gradle工程，目录结构也是正常的Gradle工程的样式。<a href="https://github.com/dupengtao/StudyGradle" target="_blank" rel="external">Demo地址</a></p>
 <p><img src="http://7d9pic.com1.z0.glb.clouddn.com/gradle新手上路4.png" alt="Gradle基本工程图"></p>
 <h3 id="StudyGradle/build-gradle(图标1)"><strong>StudyGradle/build.gradle(图标1)</strong></h3><p>这个文件是整个项目的gradle基础配置文件:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Top-level build file where you can add configuration options common to all sub-projects/modules.</span></span><br><span class="line"></span><br><span class="line">buildscript &#123; <span class="comment">// 脚步运行环境</span></span><br><span class="line">    repositories &#123;<span class="comment">// 用于项目依赖</span></span><br><span class="line">        <span class="comment">// 中央远程仓库</span></span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        <span class="comment">// gradle版本</span></span><br><span class="line">        classpath <span class="string">'com.android.tools.build:gradle:1.2.3'</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// <span class="doctag"><span class="keyword">NOTE</span></span>: Do not place your application dependencies here; they belong</span></span><br><span class="line">        <span class="comment">// in the individual module build.gradle files</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
