@@ -72,6 +72,82 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/08/03/infer-初次使用/" title="infer 初次使用" itemprop="url">infer 初次使用</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="dpt" target="_blank" itemprop="author">dpt</a>
+		
+  <p class="article-time">
+    <time datetime="2015-08-03T14:24:25.000Z" itemprop="datePublished"> 发表于 2015-08-03</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="Infer简介"><strong>Infer简介</strong></h2><p>Facebook的静态代码检测工具。Infer 可检查 Android 和 Java 代码中的 NullPointException 和 资源泄露。<a href="http://fbinfer.com/" target="_blank" rel="external">官网地址</a></p>
+<h2 id="Linux下安装"><strong>Linux下安装</strong></h2><p>安装官网教程一路下来，安装完成。<a href="https://github.com/facebook/infer/blob/master/INSTALL.md#linux" target="_blank" rel="external">官网教程</a></p>
+<h3 id="初次使用"><strong>初次使用</strong></h3><p>安装完成后，迫不急待的要使用一下。</p>
+<p>这里检验的是一个Demo项目。</p>
+<p>1 项目进行清理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> 到要检测的Demo</span><br><span class="line"></span><br><span class="line">./gradlew clean</span><br></pre></td></tr></table></figure>
+<p>2 进行检测</p>
+<p>我这里没有把infer加到系统的环境变量中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/infer0804/infer/infer/bin/infer -- ./gradlew build</span><br></pre></td></tr></table></figure>
+<p>检测到两个地方：<br><img src="http://7d9pic.com1.z0.glb.clouddn.com/infer_exception1.png" alt="infer检查出的异常"></p>
+<p>查看一下相关文件，确实有问题！</p>
+<p><img src="http://7d9pic.com1.z0.glb.clouddn.com/infer_exception2.png" alt="infer检查出的异常代码所在位置"></p>
+<h2 id="总结"><strong>总结</strong></h2><p>感觉infer，非常的智能，项目完成后，检查一遍也许会减少很多bug。要是能支持检测更多的bug类型就好了。</p>
+<p><br><br><br></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Infer/">Infer</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Gradle/">Gradle</a><a href="/tags/Infer/">Infer</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/08/03/infer-初次使用/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/08/03/infer-初次使用/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/08/02/Android-Gradle-新手入门/" title="Android Gradle 新手入门" itemprop="url">Android Gradle 新手入门</a>
   </h1>
   <p class="article-author">By
@@ -556,6 +632,10 @@
 		  
 		
 		  
+			<li><a href="/categories/Infer/" title="Infer">Infer<sup>1</sup></a></li>
+		  
+		
+		  
 			<li><a href="/categories/git/" title="git">git<sup>2</sup></a></li>
 		  
 		
@@ -567,6 +647,14 @@
 <div class="tagslist">
 	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Gradle/" title="Gradle">Gradle<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Infer/" title="Infer">Infer<sup>1</sup></a></li>
+			
 		
 			
 				<li><a href="/tags/github/" title="github">github<sup>1</sup></a></li>
@@ -586,10 +674,6 @@
 		
 			
 				<li><a href="/tags/Anim/" title="Anim">Anim<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Gradle/" title="Gradle">Gradle<sup>1</sup></a></li>
 			
 		
 		</ul>

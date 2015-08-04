@@ -4,35 +4,43 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Mac上安装Hexo | Keep a curiosity</title>
+    <title>infer 初次使用 | Keep a curiosity</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="dpt">
     
 
     
-    <meta name="description" content="买了新电脑后，需要重新安装Hexo，遇到了很多异常
-一些异常注意一定要装Xcode，我就是因为没有安装导致的各种异常
-其他参考: 
-https://github.com/hexojs/hexo/issues/913
-http://wp.huangshiyang.com/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%">
+    <meta name="description" content="Infer简介Facebook的静态代码检测工具。Infer 可检查 Android 和 Java 代码中的 NullPointException 和 资源泄露。官网地址
+Linux下安装安装官网教程一路下来，安装完成。官网教程
+初次使用安装完成后，迫不急待的要使用一下。
+这里检验的是一个Demo项目。
+1 项目进行清理
+123cd 到要检测的Demo./gradlew clean
+2 进行检测">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac上安装Hexo">
-<meta property="og:url" content="http://www.dptdev.com/2015/05/30/Mac上安装Hexo/index.html">
+<meta property="og:title" content="infer 初次使用">
+<meta property="og:url" content="http://www.dptdev.com/2015/08/03/infer-初次使用/index.html">
 <meta property="og:site_name" content="Keep a curiosity">
-<meta property="og:description" content="买了新电脑后，需要重新安装Hexo，遇到了很多异常
-一些异常注意一定要装Xcode，我就是因为没有安装导致的各种异常
-其他参考: 
-https://github.com/hexojs/hexo/issues/913
-http://wp.huangshiyang.com/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%">
-<meta property="og:updated_time" content="2015-05-30T07:16:54.000Z">
+<meta property="og:description" content="Infer简介Facebook的静态代码检测工具。Infer 可检查 Android 和 Java 代码中的 NullPointException 和 资源泄露。官网地址
+Linux下安装安装官网教程一路下来，安装完成。官网教程
+初次使用安装完成后，迫不急待的要使用一下。
+这里检验的是一个Demo项目。
+1 项目进行清理
+123cd 到要检测的Demo./gradlew clean
+2 进行检测">
+<meta property="og:image" content="http://7d9pic.com1.z0.glb.clouddn.com/infer_exception1.png">
+<meta property="og:image" content="http://7d9pic.com1.z0.glb.clouddn.com/infer_exception2.png">
+<meta property="og:updated_time" content="2015-08-04T09:35:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac上安装Hexo">
-<meta name="twitter:description" content="买了新电脑后，需要重新安装Hexo，遇到了很多异常
-一些异常注意一定要装Xcode，我就是因为没有安装导致的各种异常
-其他参考: 
-https://github.com/hexojs/hexo/issues/913
-http://wp.huangshiyang.com/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%">
+<meta name="twitter:title" content="infer 初次使用">
+<meta name="twitter:description" content="Infer简介Facebook的静态代码检测工具。Infer 可检查 Android 和 Java 代码中的 NullPointException 和 资源泄露。官网地址
+Linux下安装安装官网教程一路下来，安装完成。官网教程
+初次使用安装完成后，迫不急待的要使用一下。
+这里检验的是一个Demo项目。
+1 项目进行清理
+123cd 到要检测的Demo./gradlew clean
+2 进行检测">
 
     
     <link rel="alternative" href="/atom.xml" title="Keep a curiosity" type="application/atom+xml">
@@ -83,14 +91,14 @@ http://wp.huangshiyang.com/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/05/30/Mac上安装Hexo/" title="Mac上安装Hexo" itemprop="url">Mac上安装Hexo</a>
+      <a href="/2015/08/03/infer-初次使用/" title="infer 初次使用" itemprop="url">infer 初次使用</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="dpt" target="_blank" itemprop="author">dpt</a>
 		
   <p class="article-time">
-    <time datetime="2015-05-30T07:10:50.000Z" itemprop="datePublished"> 发表于 2015-05-30</time>
+    <time datetime="2015-08-03T14:24:25.000Z" itemprop="datePublished"> 发表于 2015-08-03</time>
     
   </p>
 </header>
@@ -99,43 +107,24 @@ http://wp.huangshiyang.com/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一些异常"><span class="toc-number">1.</span> <span class="toc-text">一些异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简明步骤"><span class="toc-number">2.</span> <span class="toc-text">简明步骤</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Infer简介"><span class="toc-number">1.</span> <span class="toc-text">Infer简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux下安装"><span class="toc-number">2.</span> <span class="toc-text">Linux下安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#初次使用"><span class="toc-number">2.1.</span> <span class="toc-text">初次使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
 		
 		</div>
 		
-		<p>买了新电脑后，需要重新安装Hexo，遇到了很多异常</p>
-<h2 id="一些异常">一些异常</h2><p><strong>注意一定要装Xcode，我就是因为没有安装导致的各种异常</strong></p>
-<p>其他参考: </p>
-<p><a href="https://github.com/hexojs/hexo/issues/913" target="_blank" rel="external">https://github.com/hexojs/hexo/issues/913</a></p>
-<p><a href="http://wp.huangshiyang.com/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" target="_blank" rel="external">http://wp.huangshiyang.com/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88</a></p>
-<p><a href="http://xuanwo.org/2014/08/14/hexo-usual-problem/" target="_blank" rel="external">http://xuanwo.org/2014/08/14/hexo-usual-problem/</a></p>
-<h2 id="简明步骤">简明步骤</h2><p><strong><em>环境：版本10.10.3</em></strong></p>
-<ul>
-<li>安装</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure>
-<ul>
-<li>创建一个文件夹，eg.hexo</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir hexo</span><br></pre></td></tr></table></figure>
-<ul>
-<li>初始化</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-<p>之后会出现：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[info] Copying data&#10;[info] You are almost done! Don&#39;t forget to run `npm install` before you start b&#10;logging with Hexo!</span><br></pre></td></tr></table></figure>
-<ul>
-<li>执行上面命令</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<ul>
-<li>验证</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g&#10;hexo s</span><br></pre></td></tr></table></figure>
-<p>一切顺利的话会出现：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
-<p>附上一个非常详细的教程：</p>
-<p><a href="http://cnfeat.com/2014/05/10/2014-05-11-how-to-build-a-blog/" target="_blank" rel="external">如何搭建一个独立博客——简明Github Pages与Hexo教程</a></p>
+		<h2 id="Infer简介"><strong>Infer简介</strong></h2><p>Facebook的静态代码检测工具。Infer 可检查 Android 和 Java 代码中的 NullPointException 和 资源泄露。<a href="http://fbinfer.com/" target="_blank" rel="external">官网地址</a></p>
+<h2 id="Linux下安装"><strong>Linux下安装</strong></h2><p>安装官网教程一路下来，安装完成。<a href="https://github.com/facebook/infer/blob/master/INSTALL.md#linux" target="_blank" rel="external">官网教程</a></p>
+<h3 id="初次使用"><strong>初次使用</strong></h3><p>安装完成后，迫不急待的要使用一下。</p>
+<p>这里检验的是一个Demo项目。</p>
+<p>1 项目进行清理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> 到要检测的Demo</span><br><span class="line"></span><br><span class="line">./gradlew clean</span><br></pre></td></tr></table></figure>
+<p>2 进行检测</p>
+<p>我这里没有把infer加到系统的环境变量中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/infer0804/infer/infer/bin/infer -- ./gradlew build</span><br></pre></td></tr></table></figure>
+<p>检测到两个地方：<br><img src="http://7d9pic.com1.z0.glb.clouddn.com/infer_exception1.png" alt="infer检查出的异常"></p>
+<p>查看一下相关文件，确实有问题！</p>
+<p><img src="http://7d9pic.com1.z0.glb.clouddn.com/infer_exception2.png" alt="infer检查出的异常代码所在位置"></p>
+<h2 id="总结"><strong>总结</strong></h2><p>感觉infer，非常的智能，项目完成后，检查一遍也许会减少很多bug。要是能支持检测更多的bug类型就好了。</p>
+<p><br><br><br></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -143,13 +132,13 @@ http://wp.huangshiyang.com/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
+  <a class="article-category-link" href="/categories/Infer/">Infer</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Hexo/">Hexo</a>
+  <span></span> <a href="/tags/Gradle/">Gradle</a><a href="/tags/Infer/">Infer</a>
   </div>
 
 </div>
@@ -158,7 +147,7 @@ http://wp.huangshiyang.com/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://www.dptdev.com/2015/05/30/Mac上安装Hexo/" data-title="Mac上安装Hexo | Keep a curiosity" data-tsina="null" class="share clearfix">
+	  <div data-url="http://www.dptdev.com/2015/08/03/infer-初次使用/" data-title="infer 初次使用 | Keep a curiosity" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -171,19 +160,11 @@ http://wp.huangshiyang.com/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/05/30/Mac下进行Android源码开发的一种解决方法/" title="Mac下进行Android源码开发的一种解决方法">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Mac下进行Android源码开发的一种解决方法</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/05/20/github保持更新与撤销commit/"  title="github保持更新与撤销commit">
+<a href="/2015/08/02/Android-Gradle-新手入门/"  title="Android Gradle 新手入门">
  <strong>下一篇：</strong><br/> 
- <span>github保持更新与撤销commit
+ <span>Android Gradle 新手入门
 </span>
 </a>
 </div>
@@ -192,7 +173,7 @@ http://wp.huangshiyang.com/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2015/05/30/Mac上安装Hexo/" data-title="Mac上安装Hexo" data-url="http://www.dptdev.com/2015/05/30/Mac上安装Hexo/"></div>
+	<div class="ds-thread" data-thread-key="2015/08/03/infer-初次使用/" data-title="infer 初次使用" data-url="http://www.dptdev.com/2015/08/03/infer-初次使用/"></div>
 </section>
 
 
@@ -202,7 +183,7 @@ http://wp.huangshiyang.com/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一些异常"><span class="toc-number">1.</span> <span class="toc-text">一些异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简明步骤"><span class="toc-number">2.</span> <span class="toc-text">简明步骤</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Infer简介"><span class="toc-number">1.</span> <span class="toc-text">Infer简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux下安装"><span class="toc-number">2.</span> <span class="toc-text">Linux下安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#初次使用"><span class="toc-number">2.1.</span> <span class="toc-text">初次使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
  
   </div>
 
