@@ -72,6 +72,94 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/01/07/AIDL之oneway/" title="AIDL之oneway" itemprop="url">AIDL之oneway</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="dpt" target="_blank" itemprop="author">dpt</a>
+		
+  <p class="article-time">
+    <time datetime="2016-01-07T04:38:42.000Z" itemprop="datePublished"> 发表于 2016-01-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="AIDL之oneway">AIDL之oneway</h2><h3 id="简介">简介</h3><p>Android 的AIDL语言的语法被定义在frameworks/base/tools/aidl目录下的aidl_language_y.y的yacc文件中。它的接口语法与java的接口语法有两个不一样的地方。</p>
+<p>interface能够用interface或者oneway interface进行声明。</p>
+<p>关键字oneway表示当服务用户请求相应功能时不需要等待应答可以直接调用返回，该关键字可以用于接口声明或者方法声明语句中，若接口声明语句中使用了oneway关键字，则该接口中声明的所有方法都采用了oneway方式。</p>
+<p>使用了该关键字，那么远程调用将仅仅是调用所需的数据传输过来并立即返回，而不会等待结果的返回，也即是说不会阻塞远程线程的运行。AIDL接口将最终将获得一个从Binder线程池中产生的调用（和普通的远程调用类似）。如果关键字oneway在本地调用中被使用，将不会对函数调用有任何影响。  </p>
+<h3 id="自己总结">自己总结</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">Col1</th>
+<th style="text-align:left">AIDL中不添加oneway关键字</th>
+<th style="text-align:left">AIDL中添加oneway关键字</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">客户端</td>
+<td style="text-align:left">阻塞</td>
+<td style="text-align:left">不阻塞</td>
+</tr>
+<tr>
+<td style="text-align:left">服务端</td>
+<td style="text-align:left">不同线程调用，<strong>可以同时</strong>让多客户端响应</td>
+<td style="text-align:left">同一线程，依次调用，<strong>不能同时</strong>让多客户端响应</td>
+</tr>
+</tbody>
+</table>
+<h3 id="参考">参考</h3><p><a href="http://blog.csdn.net/lindir/article/details/8166855" target="_blank" rel="external">AIDL语法小记</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Service/">Service</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/AIDL/">AIDL</a><a href="/tags/Service/">Service</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/01/07/AIDL之oneway/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/01/07/AIDL之oneway/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/08/03/infer-初次使用/" title="infer 初次使用" itemprop="url">infer 初次使用</a>
   </h1>
   <p class="article-author">By
@@ -636,6 +724,10 @@
 		  
 		
 		  
+			<li><a href="/categories/Service/" title="Service">Service<sup>1</sup></a></li>
+		  
+		
+		  
 			<li><a href="/categories/git/" title="git">git<sup>2</sup></a></li>
 		  
 		
@@ -674,6 +766,14 @@
 		
 			
 				<li><a href="/tags/Anim/" title="Anim">Anim<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Service/" title="Service">Service<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/AIDL/" title="AIDL">AIDL<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -717,7 +817,7 @@
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
 		
 		<a href="/about" target="_blank" title="dpt">dpt</a>
 		
