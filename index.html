@@ -65,7 +65,7 @@
 
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
-    scheme: 'Mist',
+    scheme: '',
     sidebar: 'post',
     motion: true
   };
@@ -177,15 +177,6 @@
 
     
     
-      
-      
-        
-        
-        
-      
-
-      
-    
 
     
       
@@ -244,20 +235,9 @@
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/07/AIDL之oneway/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/07/AIDL之oneway/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
-          
-   <span id="/2016/01/07/AIDL之oneway/"class="leancloud_visitors"  data-flag-title="AIDL之oneway">
-        &nbsp; | &nbsp; 阅读次数
-        </span>
 
         </div>
       </header>
@@ -273,15 +253,35 @@
         
           <span itemprop="articleBody">
             
-            AIDL之oneway简介Android 的AIDL语言的语法被定义在frameworks/base/tools/aidl目录下的aidl_language_y.y的yacc文件中。它的接口语法与java的接口语法有两个不一样的地方。
-interface能够用interface或者oneway in
-            ...
+              <h2 id="AIDL之oneway">AIDL之oneway</h2><h3 id="简介">简介</h3><p>Android 的AIDL语言的语法被定义在frameworks/base/tools/aidl目录下的aidl_language_y.y的yacc文件中。它的接口语法与java的接口语法有两个不一样的地方。</p>
+<p>interface能够用interface或者oneway interface进行声明。</p>
+<p>关键字oneway表示当服务用户请求相应功能时不需要等待应答可以直接调用返回，该关键字可以用于接口声明或者方法声明语句中，若接口声明语句中使用了oneway关键字，则该接口中声明的所有方法都采用了oneway方式。</p>
+<p>使用了该关键字，那么远程调用将仅仅是调用所需的数据传输过来并立即返回，而不会等待结果的返回，也即是说不会阻塞远程线程的运行。AIDL接口将最终将获得一个从Binder线程池中产生的调用（和普通的远程调用类似）。如果关键字oneway在本地调用中被使用，将不会对函数调用有任何影响。  </p>
+<h3 id="自己总结">自己总结</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">Col1</th>
+<th style="text-align:left">AIDL中不添加oneway关键字</th>
+<th style="text-align:left">AIDL中添加oneway关键字</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">客户端</td>
+<td style="text-align:left">阻塞</td>
+<td style="text-align:left">不阻塞</td>
+</tr>
+<tr>
+<td style="text-align:left">服务端</td>
+<td style="text-align:left">不同线程调用，<strong>可以同时</strong>让多客户端响应</td>
+<td style="text-align:left">同一线程，依次调用，<strong>不能同时</strong>让多客户端响应</td>
+</tr>
+</tbody>
+</table>
+<h3 id="参考">参考</h3><p><a href="http://blog.csdn.net/lindir/article/details/8166855" target="_blank" rel="external">AIDL语法小记</a></p>
+
+            
           </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/01/07/AIDL之oneway/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
         
       
     </div>
@@ -356,20 +356,9 @@ interface能够用interface或者oneway in
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/08/03/infer-初次使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/03/infer-初次使用/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
-          
-   <span id="/2015/08/03/infer-初次使用/"class="leancloud_visitors"  data-flag-title="infer 初次使用">
-        &nbsp; | &nbsp; 阅读次数
-        </span>
 
         </div>
       </header>
@@ -385,17 +374,23 @@ interface能够用interface或者oneway in
         
           <span itemprop="articleBody">
             
-            Infer简介Facebook的静态代码检测工具。Infer 可检查 Android 和 Java 代码中的 NullPointException 和 资源泄露。官网地址
-Linux下安装安装官网教程一路下来，安装完成。官网教程
-初次使用安装完成后，迫不急待的要使用一下。
-这里检验的是一个Demo项
-            ...
+              <h2 id="Infer简介"><strong>Infer简介</strong></h2><p>Facebook的静态代码检测工具。Infer 可检查 Android 和 Java 代码中的 NullPointException 和 资源泄露。<a href="http://fbinfer.com/" target="_blank" rel="external">官网地址</a></p>
+<h2 id="Linux下安装"><strong>Linux下安装</strong></h2><p>安装官网教程一路下来，安装完成。<a href="https://github.com/facebook/infer/blob/master/INSTALL.md#linux" target="_blank" rel="external">官网教程</a></p>
+<h3 id="初次使用"><strong>初次使用</strong></h3><p>安装完成后，迫不急待的要使用一下。</p>
+<p>这里检验的是一个Demo项目。</p>
+<p>1 项目进行清理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> 到要检测的Demo</span><br><span class="line"></span><br><span class="line">./gradlew clean</span><br></pre></td></tr></table></figure>
+<p>2 进行检测</p>
+<p>我这里没有把infer加到系统的环境变量中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/infer0804/infer/infer/bin/infer -- ./gradlew build</span><br></pre></td></tr></table></figure>
+<p>检测到两个地方：<br><img src="http://7d9pic.com1.z0.glb.clouddn.com/infer_exception1.png" alt="infer检查出的异常"></p>
+<p>查看一下相关文件，确实有问题！</p>
+<p><img src="http://7d9pic.com1.z0.glb.clouddn.com/infer_exception2.png" alt="infer检查出的异常代码所在位置"></p>
+<h2 id="总结"><strong>总结</strong></h2><p>感觉infer，非常的智能，项目完成后，检查一遍也许会减少很多bug。要是能支持检测更多的bug类型就好了。</p>
+<p><br><br><br></p>
+
+            
           </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/08/03/infer-初次使用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
         
       
     </div>
@@ -470,20 +465,9 @@ Linux下安装安装官网教程一路下来，安装完成。官网教程
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/08/02/Android-Gradle-新手入门/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/02/Android-Gradle-新手入门/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
-          
-   <span id="/2015/08/02/Android-Gradle-新手入门/"class="leancloud_visitors"  data-flag-title="Android Gradle 新手入门">
-        &nbsp; | &nbsp; 阅读次数
-        </span>
 
         </div>
       </header>
@@ -499,17 +483,49 @@ Linux下安装安装官网教程一路下来，安装完成。官网教程
         
           <span itemprop="articleBody">
             
-            什么是Gradle？Gradle 是一个基于Ant和Maven概念的项目自动化建构工具。
-Gradle 基本概念下图是很基本的Android Gradle工程，目录结构也是正常的Gradle工程的样式。Demo地址
+              <h2 id="什么是Gradle？">什么是Gradle？</h2><p>Gradle 是一个基于Ant和Maven概念的项目自动化建构工具。</p>
+<h2 id="Gradle_基本概念">Gradle 基本概念</h2><p>下图是很基本的Android Gradle工程，目录结构也是正常的Gradle工程的样式。<a href="https://github.com/dupengtao/StudyGradle" target="_blank" rel="external">Demo地址</a></p>
+<p><img src="http://7d9pic.com1.z0.glb.clouddn.com/gradle新手上路4.png" alt="Gradle基本工程图"></p>
+<h3 id="StudyGradle/build-gradle(图标1)"><strong>StudyGradle/build.gradle(图标1)</strong></h3><p>这个文件是整个项目的gradle基础配置文件:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Top-level build file where you can add configuration options common to all sub-projects/modules.</span></span><br><span class="line"></span><br><span class="line">buildscript &#123; <span class="comment">// 脚步运行环境</span></span><br><span class="line">    repositories &#123;<span class="comment">// 用于项目依赖</span></span><br><span class="line">        <span class="comment">// 中央远程仓库</span></span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        <span class="comment">// gradle版本</span></span><br><span class="line">        classpath <span class="string">'com.android.tools.build:gradle:1.2.3'</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// <span class="doctag"><span class="keyword">NOTE</span></span>: Do not place your application dependencies here; they belong</span></span><br><span class="line">        <span class="comment">// in the individual module build.gradle files</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里主要描述了两个方面：</p>
+<ol>
+<li>gradle 版本</li>
+<li>仓库的源地址</li>
+</ol>
+<h3 id="StudyGradle/app/build-gradle(图标2)"><strong>StudyGradle/app/build.gradle(图标2)</strong></h3><p>这个文件是Module名称为app的gradle的配置文件，在此项目中是主要的gradle配置文件。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明插件类型，这里声明的是Android程序</span></span><br><span class="line">apply plugin: <span class="string">'com.android.application'</span></span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    <span class="comment">//编译SDK的版本</span></span><br><span class="line">    compileSdkVersion <span class="number">22</span></span><br><span class="line">    <span class="comment">//build tools 的版本 对应Android SDK Build-tools</span></span><br><span class="line">    buildToolsVersion <span class="string">"21.1.2"</span></span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        <span class="comment">//应用包名</span></span><br><span class="line">        applicationId <span class="string">"com.example.dpt.studygradledemo"</span></span><br><span class="line">        minSdkVersion <span class="number">21</span></span><br><span class="line">        targetSdkVersion <span class="number">22</span></span><br><span class="line">        versionCode <span class="number">1</span></span><br><span class="line">        versionName <span class="string">"1.0"</span></span><br><span class="line">    &#125;</span><br><span class="line">    buildTypes &#123;<span class="comment">//构建类型，常用的有release和debug两种，可以在这里面启用混淆，启用zipAlign以及配置签名信息等</span></span><br><span class="line">        release &#123;</span><br><span class="line">            <span class="comment">//是否进行混淆</span></span><br><span class="line">            minifyEnabled <span class="keyword">false</span></span><br><span class="line">            <span class="comment">//混淆文件位置</span></span><br><span class="line">            <span class="function">proguardFiles <span class="title">getDefaultProguardFile</span><span class="params">(<span class="string">'proguard-android.txt'</span>)</span>, 'proguard-rules.pro'</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 移除lint检查的error</span></span><br><span class="line">    lintOptions </span>&#123;</span><br><span class="line">        abortOnError <span class="keyword">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    <span class="comment">// 编译依赖libs目录下的所有jar包</span></span><br><span class="line">    <span class="function">compile <span class="title">fileTree</span><span class="params">(dir: <span class="string">'libs'</span>, include: [<span class="string">'*.jar'</span>])</span></span><br><span class="line">    <span class="comment">// //应用格式: packageName:artifactId:version</span></span><br><span class="line">    <span class="comment">// 依赖 support-v4</span></span><br><span class="line">    compile 'com.android.support:support-v4:22.2.0'</span><br><span class="line">    <span class="comment">// 依赖 card view</span></span><br><span class="line">    compile 'com.android.support:cardview-v7:22.2.0'</span><br><span class="line">    <span class="comment">// 依赖 library module</span></span><br><span class="line">    compile <span class="title">project</span><span class="params">(<span class="string">':demolibrary'</span>)</span></span><br><span class="line">    compile 'com.android.support:palette-v7:22.2.0'</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>ps:</p>
+<ol>
+<li>开头第一行apply plugin: ‘com.android.application’，这表示该module是一个app module，应用了com.android.application插件，如果是一个android library，那么这里的是apply plugin: ‘com.android.library’。’com.android.application’是较新的写法，但不是最新的写法。</li>
+<li>buildToolsVersion 对应Android SDK Build-tools的版本，如图<br><img src="http://7d9pic.com1.z0.glb.clouddn.com/gradle新手上路5.png" alt="Android SDK Build-tools"><br><br></li>
+</ol>
+<h4 id="buildTypes{}"><strong>buildTypes{}</strong></h4><p>buildTypes是构建类型，常用的有release和debug两种，可以在这里面启用混淆，启用zipAlign以及配置签名信息等。<br><br></p>
+<h4 id="defaultConfig{}"><strong>defaultConfig{}</strong></h4><p>这里描述的是一些项目基础默认配置</p>
+<p>常用的属性有：versionCode,versionName,minSdkVersion,targetSdkVersion,applicationId等<br><br></p>
+<h4 id="dependencies{}"><strong>dependencies{}</strong></h4><p>dependencies就不属于Android专有的配置了，它定义了该module需要依赖的jar，aar，jcenter库信息。</p>
+<ol>
+<li>compile fileTree(dir: ‘libs’, include: [‘*.jar’]) 编译依赖libs目录下的所有jar包</li>
+<li>compile ‘com.android.support:support-v4:22.2.0’ 依赖 support-v4 </li>
+<li>compile project(‘:demolibrary’) 依赖其他module</li>
+</ol>
+<p>ps:</p>
+<p>其中依赖开源组件的格式为：packageName:artifactId:version 例如，compile ‘com.android.support:support-v4:22.2.0’</p>
+<h3 id="StudyGradle/demolibrary/build-gradle(图标2)"><strong>StudyGradle/demolibrary/build.gradle(图标2)</strong></h3><p>这个是一个依赖库的module配置文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明Android library</span></span><br><span class="line">apply plugin: <span class="string">'com.android.library'</span></span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    <span class="comment">//编译SDK版本</span></span><br><span class="line">    compileSdkVersion <span class="number">22</span></span><br><span class="line">    <span class="comment">//build tools 的版本 对应Android SDK Build-tools</span></span><br><span class="line">    buildToolsVersion <span class="string">"21.1.2"</span></span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        minSdkVersion <span class="number">21</span></span><br><span class="line">        targetSdkVersion <span class="number">22</span></span><br><span class="line">        versionCode <span class="number">1</span></span><br><span class="line">        versionName <span class="string">"1.0"</span></span><br><span class="line">    &#125;</span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            <span class="function">minifyEnabled <span class="keyword">false</span></span><br><span class="line">            proguardFiles <span class="title">getDefaultProguardFile</span><span class="params">(<span class="string">'proguard-android.txt'</span>)</span>, 'proguard-rules.pro'</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies </span>&#123;</span><br><span class="line">    <span class="function">compile <span class="title">fileTree</span><span class="params">(dir: <span class="string">'libs'</span>, include: [<span class="string">'*.jar'</span>])</span></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>ps:</p>
+<ol>
+<li>这里需要注意的是apply plugin 这里声明为Android library</li>
+</ol>
+<h3 id="StudyGradle/build-gradle(图标3)"><strong>StudyGradle/build.gradle(图标3)</strong></h3><p>这个文件是全局的项目配置文件，里面主要声明一些需要加入gradle的module</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include <span class="string">':app'</span>, <span class="string">':demolibrary'</span></span><br></pre></td></tr></table></figure>
+<h3 id="Gradle_Wrapper(图标4)"><strong>Gradle Wrapper(图标4)</strong></h3><p>android studio希望你能在电脑上不安装gradle的情况下，依然使用gradle管理android项目，因此通过AS创建的每个项目都会内嵌一个gradle wrapper，作用是检查你当前的共工作环境是否安装了创建本项目时所用的gradle版本。<br>如果没有，它会自动下载相应的gradle放在~/.gradle/wrapper.目录下。这样当你在你的项目里使用gradle时，可以通过gradlw命令使用当前项目环境的gradle版本，而不受环境变量的影响。</p>
+<p>很多人会遇到一个项目build很久，很大一部分原因就是因为这个，他会去下载自带的gradle wrapper，50多M，大部分情况下需要翻墙</p>
+<p>如果不能翻墙，也可以更改<strong>gradle-wrapper.properties</strong>的配置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">distributionBase=GRADLE_USER_HOME</span><br><span class="line">distributionPath=wrapper/dists</span><br><span class="line">zipStoreBase=GRADLE_USER_HOME</span><br><span class="line">zipStorePath=wrapper/dists</span><br><span class="line">distributionUrl=https\:<span class="comment">//services.gradle.org/distributions/gradle-2.2.1-all.zip</span></span><br></pre></td></tr></table></figure>
 
-StudyGradle/build.gradle(图标1)这个文件是整个项目的gr
-            ...
+            
           </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/08/02/Android-Gradle-新手入门/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
         
       
     </div>
@@ -584,20 +600,9 @@ StudyGradle/build.gradle(图标1)这个文件是整个项目的gr
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/06/13/Android旋转动画的三种方式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/13/Android旋转动画的三种方式/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
-          
-   <span id="/2015/06/13/Android旋转动画的三种方式/"class="leancloud_visitors"  data-flag-title="Android旋转动画的三种方式">
-        &nbsp; | &nbsp; 阅读次数
-        </span>
 
         </div>
       </header>
@@ -613,15 +618,36 @@ StudyGradle/build.gradle(图标1)这个文件是整个项目的gr
         
           <span itemprop="articleBody">
             
-            属性动画（系统属性、硬件加速）这种方式是直接利用View的setRotation(float rotation)来控制整个view旋转。关于硬件加速
-123456789101112131415161718192021222324/**     * Sets the degrees that the 
-            ...
+              <h2 id="属性动画（系统属性、硬件加速）">属性动画（系统属性、硬件加速）</h2><p>这种方式是直接利用View的setRotation(float rotation)来控制整个view旋转。<a href="http://developer.android.com/guide/topics/graphics/hardware-accel.html" target="_blank" rel="external">关于硬件加速</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">     * Sets the degrees that the view is rotated around the pivot point. Increasing values</span><br><span class="line">     * result in clockwise rotation.</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> rotation The degrees of rotation.</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@see</span> #getRotation()</span><br><span class="line">     * <span class="doctag">@see</span> #getPivotX()</span><br><span class="line">     * <span class="doctag">@see</span> #getPivotY()</span><br><span class="line">     * <span class="doctag">@see</span> #setRotationX(float)</span><br><span class="line">     * <span class="doctag">@see</span> #setRotationY(float)</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@attr</span> ref android.R.styleable#View_rotation</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRotation</span><span class="params">(<span class="keyword">float</span> rotation)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (rotation != getRotation()) &#123;</span><br><span class="line">            <span class="comment">// Double-invalidation is necessary to capture view's old and new areas</span></span><br><span class="line">            invalidateViewProperty(<span class="keyword">true</span>, <span class="keyword">false</span>);</span><br><span class="line">            mRenderNode.setRotation(rotation);</span><br><span class="line">            invalidateViewProperty(<span class="keyword">false</span>, <span class="keyword">true</span>);</span><br><span class="line">            invalidateParentIfNeededAndWasQuickRejected();</span><br><span class="line">            notifySubtreeAccessibilityStateChangedIfNeeded();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>动画:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> ObjectAnimator <span class="title">preRotateAnim</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    PropertyValuesHolder rotation = PropertyValuesHolder.ofFloat(<span class="string">"rotation"</span>,</span><br><span class="line">            <span class="number">0</span>, <span class="number">360</span>);</span><br><span class="line">    ObjectAnimator rotateAnim = ObjectAnimator.ofPropertyValuesHolder(<span class="keyword">this</span>, rotation).setDuration(ROTATE_DURATION);</span><br><span class="line">    rotateAnim.setRepeatCount(-<span class="number">1</span>); <span class="comment">// -1:Infinite loop</span></span><br><span class="line">    rotateAnim.setInterpolator(<span class="keyword">new</span> LinearInterpolator());</span><br><span class="line">    <span class="keyword">return</span> rotateAnim;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="属性动画（自定义属性）">属性动画（自定义属性）</h2><p>这里自定义了rot属性，用来控制canvas的旋转</p>
+<p>动画:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> ObjectAnimator <span class="title">preRotateAnim2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    PropertyValuesHolder rotation = PropertyValuesHolder.ofFloat(<span class="string">"rot"</span>,</span><br><span class="line">            <span class="number">0</span>, <span class="number">360</span>);</span><br><span class="line">    ObjectAnimator rotateAnim = ObjectAnimator.ofPropertyValuesHolder(<span class="keyword">this</span>, rotation).setDuration(ROTATE_DURATION);</span><br><span class="line">    rotateAnim.setRepeatCount(-<span class="number">1</span>); <span class="comment">// -1:Infinite loop</span></span><br><span class="line">    rotateAnim.setInterpolator(<span class="keyword">new</span> LinearInterpolator());</span><br><span class="line">    rotateAnim.addUpdateListener(<span class="keyword">this</span>);</span><br><span class="line">    <span class="keyword">return</span> rotateAnim;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line"> <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">super</span>.onDraw(canvas);</span><br><span class="line">     <span class="keyword">if</span> (rotateAnim.isRunning()) &#123;</span><br><span class="line">         canvas.rotate(rot, canvas.getWidth() / <span class="number">2</span>, canvas.getHeight() / <span class="number">2</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     ...</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Tween动画">Tween动画</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> RotateAnimation <span class="title">preRotateAnim2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        RotateAnimation anim = <span class="keyword">new</span> RotateAnimation(<span class="number">0</span>, <span class="number">360</span>,</span><br><span class="line">                Animation.RELATIVE_TO_SELF, <span class="number">0.5f</span>, Animation.RELATIVE_TO_SELF,</span><br><span class="line">                <span class="number">0.5f</span>);</span><br><span class="line">        anim.setDuration(<span class="number">1000</span>);</span><br><span class="line">        anim.setRepeatCount(-<span class="number">1</span>);</span><br><span class="line">        anim.setRepeatMode(Animation.INFINITE);</span><br><span class="line">        anim.setInterpolator(<span class="keyword">new</span> LinearInterpolator());</span><br><span class="line">        <span class="keyword">return</span> anim;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="性能对比">性能对比</h2><p>测试环境相同，乐视pro1，高通810芯片，非原生rom，也可以下载我的demo，在自己的手机上试试，实测mtk的芯片更消耗cpu</p>
+<ul>
+<li>属性动画－硬件加速</li>
+</ul>
+<p><img src="http://7d9pic.com1.z0.glb.clouddn.com/属性动画硬件加速.png" alt="属性动画－硬件加速"></p>
+<ul>
+<li>属性动画</li>
+</ul>
+<p><img src="http://7d9pic.com1.z0.glb.clouddn.com/属性动画.png" alt="属性动画"></p>
+<ul>
+<li>Tween动画</li>
+</ul>
+<p><img src="http://7d9pic.com1.z0.glb.clouddn.com/补间动画.png" alt="Tween动画"></p>
+<p><a href="https://github.com/dupengtao/RotateAnimationDemos" target="_blank" rel="external">Demo地址</a></p>
+<blockquote>
+<p>疑问：为什么硬件加速会更消耗cpu资源？</p>
+</blockquote>
+<p><br></p>
+
+            
           </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/13/Android旋转动画的三种方式/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
         
       
     </div>
@@ -696,20 +722,9 @@ StudyGradle/build.gradle(图标1)这个文件是整个项目的gr
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/05/30/Mac下进行Android源码开发的一种解决方法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/30/Mac下进行Android源码开发的一种解决方法/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
-          
-   <span id="/2015/05/30/Mac下进行Android源码开发的一种解决方法/"class="leancloud_visitors"  data-flag-title="Mac下进行Android源码开发的一种解决方法">
-        &nbsp; | &nbsp; 阅读次数
-        </span>
 
         </div>
       </header>
@@ -725,21 +740,48 @@ StudyGradle/build.gradle(图标1)这个文件是整个项目的gr
         
           <span itemprop="articleBody">
             
+              <!--##Mac下进行Android源码开发的一种方案-->
+<h2 id="背景">背景</h2><p>os版本号：10.10.3</p>
+<p>ubuntu版本：14.04</p>
+<p>Mac是mbpr，磁盘空间有限(😢)，所以采取用ubuntu台式机进行编译，Mac挂载ubuntu上的Rom源码的方式</p>
+<p>开发环境需要大量下载，可能需要翻墙</p>
+<h2 id="IDE下载">IDE下载</h2><ul>
+<li>Android Studio <a href="http://developer.android.com/sdk/index.html" target="_blank" rel="external">下载地址</a></li>
+<li>intellij Idea <a href="https://www.jetbrains.com/idea/" target="_blank" rel="external">下载地址</a></li>
+</ul>
+<h2 id="其他环境下载">其他环境下载</h2><ul>
+<li>JDK 6</li>
+<li>JDK 7 (Android 5.0需要)</li>
+<li>Xcode</li>
+</ul>
+<p>环境搭建好后，就需要远程连接<em>服务器</em>(这里指的是台式机)。</p>
+<h2 id="服务器端(Linux)">服务器端(Linux)</h2><h3 id="Samba"><strong>Samba</strong></h3><h4 id="安装"><strong>安装</strong></h4><p>直接上命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install samba</span><br><span class="line">sudo apt-get install smbfs</span><br><span class="line">sudo apt-get install system-config-samba</span><br></pre></td></tr></table></figure>
+<h4 id="卸载"><strong>卸载</strong></h4><p>如安装失败，可执行下面命令删除</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove samba-common</span><br><span class="line">sudo apt-get remove smbclient</span><br><span class="line">sudo apt-get remove samba</span><br></pre></td></tr></table></figure>
+<h4 id="启动"><strong>启动</strong></h4><p>可通过图形界面启动，也可执行下边命令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo system-config-samba</span><br></pre></td></tr></table></figure>
+<p>在图像化界面中设置想要分享的文件夹，非常的直观。</p>
+<h4 id="重启Samba"><strong>重启Samba</strong></h4><p>有时需要手动重启下Samba，才会生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service samba restart</span><br></pre></td></tr></table></figure>
+<h4 id="客户端(Mac)挂载"><strong>客户端(Mac)挂载</strong></h4><ul>
+<li><h5 id="简单方式">简单方式</h5></li>
+</ul>
+<blockquote>
+<p><strong>Finder</strong>—-&gt;<strong>前往</strong>—-&gt;<strong>链接服务器</strong></p>
+</blockquote>
+<ul>
+<li><h5 id="指定目录方式">指定目录方式</h5></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mount -t smbfs //用户:密码@服务器地址/共享文件夹 本地挂载文件夹</span><br><span class="line">eg.</span><br><span class="line">mount -t smbfs //user:mima@<span class="number">10.58</span>.<span class="number">20.143</span>/x0521 x1</span><br></pre></td></tr></table></figure>
+<h3 id="SSH链接"><strong>SSH链接</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh &#26381;&#21153;&#22120;&#22320;&#22336;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<blockquote>
+<p>End<br>非常感谢那些帮助我的人</p>
+</blockquote>
+
             
-背景os版本号：10.10.3
-ubuntu版本：14.04
-Mac是mbpr，磁盘空间有限(😢)，所以采取用ubuntu台式机进行编译，Mac挂载ubuntu上的Rom源码的方式
-开发环境需要大量下载，可能需要翻墙
-IDE下载
-Android Studio 下载地址
-intellij Idea
-            ...
           </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/30/Mac下进行Android源码开发的一种解决方法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
         
       
     </div>
@@ -814,20 +856,9 @@ intellij Idea
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/05/30/Mac上安装Hexo/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/30/Mac上安装Hexo/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
-          
-   <span id="/2015/05/30/Mac上安装Hexo/"class="leancloud_visitors"  data-flag-title="Mac上安装Hexo">
-        &nbsp; | &nbsp; 阅读次数
-        </span>
 
         </div>
       </header>
@@ -843,18 +874,42 @@ intellij Idea
         
           <span itemprop="articleBody">
             
-            买了新电脑后，需要重新安装Hexo，遇到了很多异常
-一些异常注意一定要装Xcode，我就是因为没有安装导致的各种异常
-其他参考: 
-https://github.com/hexojs/hexo/issues/913
-http://wp.huangshiyang.com/hexo%E5%B8%B8%E
-            ...
+              <p>买了新电脑后，需要重新安装Hexo，遇到了很多异常</p>
+<h2 id="一些异常">一些异常</h2><p><strong>注意一定要装Xcode，我就是因为没有安装导致的各种异常</strong></p>
+<p>其他参考: </p>
+<p><a href="https://github.com/hexojs/hexo/issues/913" target="_blank" rel="external">https://github.com/hexojs/hexo/issues/913</a></p>
+<p><a href="http://wp.huangshiyang.com/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" target="_blank" rel="external">http://wp.huangshiyang.com/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88</a></p>
+<p><a href="http://xuanwo.org/2014/08/14/hexo-usual-problem/" target="_blank" rel="external">http://xuanwo.org/2014/08/14/hexo-usual-problem/</a></p>
+<h2 id="简明步骤">简明步骤</h2><p><strong><em>环境：版本10.10.3</em></strong></p>
+<ul>
+<li>安装</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建一个文件夹，eg.hexo</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir hexo</span><br></pre></td></tr></table></figure>
+<ul>
+<li>初始化</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<p>之后会出现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[info] Copying data&#10;[info] You are almost done! Don&#39;t forget to run `npm install` before you start b&#10;logging with Hexo!</span><br></pre></td></tr></table></figure>
+<ul>
+<li>执行上面命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<ul>
+<li>验证</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g&#10;hexo s</span><br></pre></td></tr></table></figure>
+<p>一切顺利的话会出现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+<p>附上一个非常详细的教程：</p>
+<p><a href="http://cnfeat.com/2014/05/10/2014-05-11-how-to-build-a-blog/" target="_blank" rel="external">如何搭建一个独立博客——简明Github Pages与Hexo教程</a></p>
+
+            
           </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/30/Mac上安装Hexo/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
         
       
     </div>
@@ -929,20 +984,9 @@ http://wp.huangshiyang.com/hexo%E5%B8%B8%E
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/05/20/github保持更新与撤销commit/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/20/github保持更新与撤销commit/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
-          
-   <span id="/2015/05/20/github保持更新与撤销commit/"class="leancloud_visitors"  data-flag-title="github保持更新与撤销commit">
-        &nbsp; | &nbsp; 阅读次数
-        </span>
 
         </div>
       </header>
@@ -958,14 +1002,24 @@ http://wp.huangshiyang.com/hexo%E5%B8%B8%E
         
           <span itemprop="articleBody">
             
-            怎样保持fork出的项目和上游项目保持更新?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在日常工作中，越来越多要使用开源组件，如联网、图片处理、自定义控件等。clone一份代码到本地，根据自己的需求修改并使用后就不去管它了，这样做是非常不好的，应该经常去同步这
-            ...
+              <h3 id="怎样保持fork出的项目和上游项目保持更新?">怎样保持fork出的项目和上游项目保持更新?</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在日常工作中，越来越多要使用开源组件，如联网、图片处理、自定义控件等。clone一份代码到本地，根据自己的需求修改并使用后就不去管它了，这样做是非常不好的，应该经常去同步这个库，使它变得更完善。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fork出一个项目后，如果原有的项目更新了，怎样使我们fork出来的项目和原有项目保持同步？怎样提交我们的代码更新？即怎样保持fork出的项目和上游项目保持更新。</p>
+<p>以github举栗：</p>
+<p>1.先fork一下开源组件，并clone到本地</p>
+<p>2.保持本地master分支与远程上游master分支一致，命令只需执行一次即可。<strong>upstream</strong> 可任意起名称</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add upstream &#19978;&#28216;&#39033;&#30446;&#22320;&#22336;</span><br></pre></td></tr></table></figure>
+<p>这里执行了rebase操作，上游最新的节点更新到本地master分支上了。到这里已经完成了与上游项目更新了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote update upstream&#10;git rebase upstream/master</span><br></pre></td></tr></table></figure></p>
+<p>本地开发相关：<br>3.创建一个开发分支，平常本地修改都提交这</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b dev</span><br></pre></td></tr></table></figure>
+<p>4.本地采用merge/rebase/cherry-pick 等方式把所需要的内容合并到本地开发分支，并提交到远程分支（需要本地开发分支与远程开发分支先进行关联）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin dev</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="提交一次错误的commit后该怎么办？">提交一次错误的commit后该怎么办？</h3><p>这也是是经常会遇到情况<br>首先，先回退，这里用HEAD节点表示错误提交，举栗子</p>
+<p>本地回退到上一次提交。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD^</span><br></pre></td></tr></table></figure></p>
+<p>强制推送到远程分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -f origin dev</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+
+            
           </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/20/github保持更新与撤销commit/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
         
       
     </div>
@@ -1019,7 +1073,7 @@ http://wp.huangshiyang.com/hexo%E5%B8%B8%E
 
       <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/avatar.jpg" alt="dpt" itemprop="image"/>
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="dpt" itemprop="image"/>
           <p class="site-author-name" itemprop="name">dpt</p>
         </div>
         <p class="site-description motion-element" itemprop="description">学习总结 思考感悟 知识管理</p>
@@ -1050,16 +1104,6 @@ http://wp.huangshiyang.com/hexo%E5%B8%B8%E
         
 
         <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/dupengtao" target="_blank">
-                  
-                    <i class="fa fa-github"></i> GitHub
-                  
-                </a>
-              </span>
-            
           
         </div>
 
@@ -1100,7 +1144,7 @@ http://wp.huangshiyang.com/hexo%E5%B8%B8%E
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT
   </a>
 </div>
 
@@ -1119,28 +1163,11 @@ http://wp.huangshiyang.com/hexo%E5%B8%B8%E
 
   
     
+    
 
   
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"dptdev"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-    
-     
 
 
-    
   
 
   
@@ -1167,89 +1194,6 @@ http://wp.huangshiyang.com/hexo%E5%B8%B8%E
 
   
   
-  
-     <!-- custom analytics part create by xiamo -->
-<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-<script>AV.initialize("8lskhD424jqpRIjWpIDJgwDw-gzGzoHsz", "nSKcpR3Kd7K13ogOgdqqoizT");</script>
-<script>
-function showTime(Counter) {
-	var query = new AV.Query(Counter);
-	$(".leancloud_visitors").each(function() {
-		var url = $(this).attr("id").trim();
-		query.equalTo("url", url);
-		query.find({
-			success: function(results) {
-				if (results.length == 0) {
-					var content = $(document.getElementById(url)).text() + ': 0';
-					$(document.getElementById(url)).text(content);
-					return;
-				}
-				for (var i = 0; i < results.length; i++) {
-					var object = results[i];
-					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
-					$(document.getElementById(url)).text(content);
-				}
-			},
-			error: function(object, error) {
-				console.log("Error: " + error.code + " " + error.message);
-			}
-		});
 
-	});
-}
-
-function addCount(Counter) {
-	var Counter = AV.Object.extend("Counter");
-	url = $(".leancloud_visitors").attr('id').trim();
-	title = $(".leancloud_visitors").attr('data-flag-title').trim();
-	var query = new AV.Query(Counter);
-	query.equalTo("url", url);
-	query.find({
-		success: function(results) {
-			if (results.length > 0) {
-				var counter = results[0];
-				counter.fetchWhenSave(true);
-				counter.increment("time");
-				counter.save(null, {
-					success: function(counter) {
-						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
-						$(document.getElementById(url)).text(content);
-					},
-					error: function(counter, error) {
-						console.log('Failed to save Visitor num, with error message: ' + error.message);
-					}
-				});
-			} else {
-				var newcounter = new Counter();
-				newcounter.set("title", title);
-				newcounter.set("url", url);
-				newcounter.set("time", 1);
-				newcounter.save(null, {
-					success: function(newcounter) {
-					    console.log("newcounter.get('time')="+newcounter.get('time'));
-						var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
-						$(document.getElementById(url)).text(content);
-					},
-					error: function(newcounter, error) {
-						console.log('Failed to create');
-					}
-				});
-			}
-		},
-		error: function(error) {
-			console.log('Error:' + error.code + " " + error.message);
-		}
-	});
-}
-$(function() {
-	var Counter = AV.Object.extend("Counter");
-	if ($('.leancloud_visitors').length == 1) {
-		addCount(Counter);
-	} else if ($('.post-title-link').length > 1) {
-		showTime(Counter);
-	}
-}); 
-</script>
-  
 </body>
 </html>
