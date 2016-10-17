@@ -1,0 +1,27 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> AIDL之oneway · Keep a curiosity</title><meta name="description" content="AIDL之oneway - dpt"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://www.dptdev.com/atom.xml" title="Keep a curiosity"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/sunchongsheng" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/pinggod" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">AIDL之oneway</h1><div class="post-info">Jan 7, 2016</div><div class="post-content"><h2 id="AIDL之oneway">AIDL之oneway</h2><h3 id="简介">简介</h3><p>Android 的AIDL语言的语法被定义在frameworks/base/tools/aidl目录下的aidl_language_y.y的yacc文件中。它的接口语法与java的接口语法有两个不一样的地方。</p>
+<p>interface能够用interface或者oneway interface进行声明。</p>
+<p>关键字oneway表示当服务用户请求相应功能时不需要等待应答可以直接调用返回，该关键字可以用于接口声明或者方法声明语句中，若接口声明语句中使用了oneway关键字，则该接口中声明的所有方法都采用了oneway方式。</p>
+<p>使用了该关键字，那么远程调用将仅仅是调用所需的数据传输过来并立即返回，而不会等待结果的返回，也即是说不会阻塞远程线程的运行。AIDL接口将最终将获得一个从Binder线程池中产生的调用（和普通的远程调用类似）。如果关键字oneway在本地调用中被使用，将不会对函数调用有任何影响。  </p>
+<h3 id="自己总结">自己总结</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">Col1</th>
+<th style="text-align:left">AIDL中不添加oneway关键字</th>
+<th style="text-align:left">AIDL中添加oneway关键字</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">客户端</td>
+<td style="text-align:left">阻塞</td>
+<td style="text-align:left">不阻塞</td>
+</tr>
+<tr>
+<td style="text-align:left">服务端</td>
+<td style="text-align:left">不同线程调用，<strong>可以同时</strong>让多客户端响应</td>
+<td style="text-align:left">同一线程，依次调用，<strong>不能同时</strong>让多客户端响应</td>
+</tr>
+</tbody>
+</table>
+<h3 id="参考">参考</h3><p><a href="http://blog.csdn.net/lindir/article/details/8166855" target="_blank" rel="external">AIDL语法小记</a></p>
+</div></article></div></section><footer><div class="paginator"><a href="/2015/08/03/infer-初次使用/" class="next">下一篇</a></div><div class="copyright"><p>© 2015 - 2016 <a href="http://www.dptdev.com">dpt</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

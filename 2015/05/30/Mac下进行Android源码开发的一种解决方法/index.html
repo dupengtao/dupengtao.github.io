@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Mac下进行Android源码开发的一种解决方法 · Keep a curiosity</title><meta name="description" content="Mac下进行Android源码开发的一种解决方法 - dpt"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://www.dptdev.com/atom.xml" title="Keep a curiosity"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/sunchongsheng" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/pinggod" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">Mac下进行Android源码开发的一种解决方法</h1><div class="post-info">May 30, 2015</div><div class="post-content"><!--##Mac下进行Android源码开发的一种方案-->
+<h2 id="背景">背景</h2><p>os版本号：10.10.3</p>
+<p>ubuntu版本：14.04</p>
+<p>Mac是mbpr，磁盘空间有限(😢)，所以采取用ubuntu台式机进行编译，Mac挂载ubuntu上的Rom源码的方式</p>
+<p>开发环境需要大量下载，可能需要翻墙</p>
+<h2 id="IDE下载">IDE下载</h2><ul>
+<li>Android Studio <a href="http://developer.android.com/sdk/index.html" target="_blank" rel="external">下载地址</a></li>
+<li>intellij Idea <a href="https://www.jetbrains.com/idea/" target="_blank" rel="external">下载地址</a></li>
+</ul>
+<h2 id="其他环境下载">其他环境下载</h2><ul>
+<li>JDK 6</li>
+<li>JDK 7 (Android 5.0需要)</li>
+<li>Xcode</li>
+</ul>
+<p>环境搭建好后，就需要远程连接<em>服务器</em>(这里指的是台式机)。</p>
+<h2 id="服务器端(Linux)">服务器端(Linux)</h2><h3 id="Samba"><strong>Samba</strong></h3><h4 id="安装"><strong>安装</strong></h4><p>直接上命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install samba</span><br><span class="line">sudo apt-get install smbfs</span><br><span class="line">sudo apt-get install system-config-samba</span><br></pre></td></tr></table></figure>
+<h4 id="卸载"><strong>卸载</strong></h4><p>如安装失败，可执行下面命令删除</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove samba-common</span><br><span class="line">sudo apt-get remove smbclient</span><br><span class="line">sudo apt-get remove samba</span><br></pre></td></tr></table></figure>
+<h4 id="启动"><strong>启动</strong></h4><p>可通过图形界面启动，也可执行下边命令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo system-config-samba</span><br></pre></td></tr></table></figure>
+<p>在图像化界面中设置想要分享的文件夹，非常的直观。</p>
+<h4 id="重启Samba"><strong>重启Samba</strong></h4><p>有时需要手动重启下Samba，才会生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service samba restart</span><br></pre></td></tr></table></figure>
+<h4 id="客户端(Mac)挂载"><strong>客户端(Mac)挂载</strong></h4><ul>
+<li><h5 id="简单方式">简单方式</h5></li>
+</ul>
+<blockquote>
+<p><strong>Finder</strong>—-&gt;<strong>前往</strong>—-&gt;<strong>链接服务器</strong></p>
+</blockquote>
+<ul>
+<li><h5 id="指定目录方式">指定目录方式</h5></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mount -t smbfs //用户:密码@服务器地址/共享文件夹 本地挂载文件夹</span><br><span class="line">eg.</span><br><span class="line">mount -t smbfs //user:mima@<span class="number">10.58</span>.<span class="number">20.143</span>/x0521 x1</span><br></pre></td></tr></table></figure>
+<h3 id="SSH链接"><strong>SSH链接</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh &#26381;&#21153;&#22120;&#22320;&#22336;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<blockquote>
+<p>End<br>非常感谢那些帮助我的人</p>
+</blockquote>
+</div></article></div></section><footer><div class="paginator"><a href="/2015/06/13/Android旋转动画的三种方式/" class="prev">上一篇</a><a href="/2015/05/30/Mac上安装Hexo/" class="next">下一篇</a></div><div class="copyright"><p>© 2015 - 2016 <a href="http://www.dptdev.com">dpt</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
